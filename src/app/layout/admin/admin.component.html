@@ -1,0 +1,30 @@
+<div class="col-md-9">
+  <h2> User Details</h2>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Blocked</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of userList">
+      <td class="hidden">{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.role}}</td>
+      <td>{{user.blocked}}</td>
+      <td><button class="btn btn-success" (click)="setAdmin(user)"> Set Admin</button></td>
+      <td><button class="btn btn-warning" (click)="block(user)"> Block User</button></td>
+      <td><button class="btn btn-danger" (click)="delete(user)"> Delete User</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

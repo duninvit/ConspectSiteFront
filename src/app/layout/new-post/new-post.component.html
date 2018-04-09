@@ -1,0 +1,35 @@
+<div class="card card-outline-primary mb-3 ml-5" style="margin-right: 25%;">
+  <div class="card-header"><h4>New conspect</h4></div>
+  <div class="card-body">
+    <fieldset class="form-group">
+      <label>Input Title</label>
+      <input class="form-control" [(ngModel)]="conspect.title" placeholder="Enter text">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Input Number Spec</label>
+      <input class="form-control" [(ngModel)]="conspect.numberSpec" placeholder="Enter text">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Input Description</label>
+      <textarea class="form-control" [(ngModel)]="conspect.description" rows="3"></textarea>
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Input Tags (Press Enter for add)</label>
+      <input class="form-control" [(ngModel)]="tag" placeholder="Enter text" (keyup.Enter)="onEnter()">
+      <table style="margin-top: 5px;">
+      <tr>
+        <td *ngFor="let tag of this.tagsNew">
+        <button type="button" class="btn btn-primary" (click)="onClick(tag)">{{tag}}</button>
+        </td>
+      </tr>
+      </table>
+    </fieldset>
+    <td-text-editor [value]="" [options]="options" #textEditor></td-text-editor>
+    <div class="center">
+      <file-drop headertext="Drop image here" (onFileDrop)="dropped($event)"
+                 (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+      </file-drop>
+    </div>
+    <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="submit()">Create</button>
+  </div>
+</div>

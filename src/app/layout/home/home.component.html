@@ -1,0 +1,25 @@
+<div class="card card-outline-primary mb-3 ml-5" style="margin-right: 25%;" *ngFor="let conspect of conspects">
+  <div class="card-header"><h4>{{conspect.title}}</h4></div>
+  <div class="card-body">
+    <h5 class="card-title" [routerLink]="['/user/', currentUser()]">{{conspect.author}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{conspect.numberSpec}}</h6>
+    <p class="card-text">{{conspect.description}}</p>
+    <div class="card-footer row">
+      <div class="col-2">
+        <a href="#" class="btn btn-outline-primary" style="margin-left: -20px; margin-top: 7px;" [routerLink]="['/post', conspect.id]">
+          Подробнее...
+        </a>
+      </div>
+      <div class="col-8">
+        <table style="margin-top: 5px;">
+          <tr>
+            <td *ngFor="let tag of this.conspect.tags">
+              <button type="button" class="btn btn-primary" (click)="onClick(tag)">{{tag}}</button>
+            </td>
+          </tr>
+        </table>
+       </div>
+      <div class="col-2 text-right">{{conspect.creationDate}}</div>
+    </div>
+  </div>
+</div>
